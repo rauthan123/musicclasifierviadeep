@@ -1,0 +1,65 @@
+/home/ayadav/.local/share/virtualenvs/librosa-zh1XWsvG/bin/python3 /home/ayadav/Desktop/librosa/4_predict.py
+2023-06-12 10:29:26.686695: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/ayadav/.local/share/virtualenvs/librosa-zh1XWsvG/lib/python3.9/site-packages/cv2/../../lib64:
+2023-06-12 10:29:26.686713: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+/home/ayadav/Desktop/librosa/4_predict.py:47: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray.
+  return np.array(data)
+2023-06-12 10:29:36.028788: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/ayadav/.local/share/virtualenvs/librosa-zh1XWsvG/lib/python3.9/site-packages/cv2/../../lib64:
+2023-06-12 10:29:36.028808: W tensorflow/stream_executor/cuda/cuda_driver.cc:326] failed call to cuInit: UNKNOWN ERROR (303)
+2023-06-12 10:29:36.028824: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (evertzRnD24NBLG3): /proc/driver/nvidia/version does not exist
+2023-06-12 10:29:36.028995: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Model: "sequential"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+conv2d (Conv2D)              (None, 256, 256, 32)      896
+_________________________________________________________________
+max_pooling2d (MaxPooling2D) (None, 128, 128, 32)      0
+_________________________________________________________________
+conv2d_1 (Conv2D)            (None, 128, 128, 32)      9248
+_________________________________________________________________
+max_pooling2d_1 (MaxPooling2 (None, 64, 64, 32)        0
+_________________________________________________________________
+conv2d_2 (Conv2D)            (None, 64, 64, 64)        18496
+_________________________________________________________________
+max_pooling2d_2 (MaxPooling2 (None, 32, 32, 64)        0
+_________________________________________________________________
+dropout (Dropout)            (None, 32, 32, 64)        0
+_________________________________________________________________
+flatten (Flatten)            (None, 65536)             0
+_________________________________________________________________
+dense (Dense)                (None, 128)               8388736
+_________________________________________________________________
+dense_1 (Dense)              (None, 10)                1290
+=================================================================
+Total params: 8,418,666
+Trainable params: 8,418,666
+Non-trainable params: 0
+_________________________________________________________________
+/home/ayadav/.local/share/virtualenvs/librosa-zh1XWsvG/lib/python3.9/site-packages/tensorflow/python/keras/optimizer_v2/optimizer_v2.py:374: UserWarning: The `lr` argument is deprecated, use `learning_rate` instead.
+  warnings.warn(
+/home/ayadav/.local/share/virtualenvs/librosa-zh1XWsvG/lib/python3.9/site-packages/tensorflow/python/keras/engine/sequential.py:455: UserWarning: `model.predict_classes()` is deprecated and will be removed after 2021-01-01. Please use instead:* `np.argmax(model.predict(x), axis=-1)`,   if your model does multi-class classification   (e.g. if it uses a `softmax` last-layer activation).* `(model.predict(x) > 0.5).astype("int32")`,   if your model does binary classification   (e.g. if it uses a `sigmoid` last-layer activation).
+  warnings.warn('`model.predict_classes()` is deprecated and '
+2023-06-12 10:29:36.259218: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 313786368 exceeds 10% of free system memory.
+2023-06-12 10:29:36.418327: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:176] None of the MLIR Optimization Passes are enabled (registered 2)
+2023-06-12 10:29:36.418581: I tensorflow/core/platform/profile_utils/cpu_utils.cc:114] CPU Frequency: 1689600000 Hz
+2023-06-12 10:29:36.495783: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 268435456 exceeds 10% of free system memory.
+2023-06-12 10:29:36.745778: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 268435456 exceeds 10% of free system memory.
+2023-06-12 10:29:36.961769: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 268435456 exceeds 10% of free system memory.
+2023-06-12 10:29:37.171441: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 268435456 exceeds 10% of free system memory.
+              precision    recall  f1-score   support
+
+       blues       0.67      0.72      0.70        40
+   classical       0.90      0.88      0.89        40
+     country       0.53      0.50      0.51        40
+       disco       0.51      0.60      0.55        40
+      hiphop       0.58      0.55      0.56        40
+        jazz       0.62      0.59      0.61        39
+       metal       0.82      0.80      0.81        40
+         pop       0.72      0.82      0.77        40
+      reggae       0.53      0.60      0.56        40
+        rock       0.59      0.40      0.48        40
+
+    accuracy                           0.65       399
+   macro avg       0.65      0.65      0.64       399
+weighted avg       0.65      0.65      0.64       399
